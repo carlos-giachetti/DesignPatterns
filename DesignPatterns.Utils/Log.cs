@@ -20,8 +20,8 @@ namespace DesignPatterns.Utils
             string   identation      = new String(' ', identationLevel);
             DateTime currentDateTime = DateTime.UtcNow;
             string   ipAddress       = Network.GetIPAddress();
-
             string result = $"{identation}{currentDateTime} (UTC)\t{ipAddress}\t{msg}";
+
             buffer.AppendLine(result);
         }
 
@@ -33,7 +33,7 @@ namespace DesignPatterns.Utils
 
         public void AppendLine()
         {
-            AppendLine(0, String.Empty);
+            buffer.AppendLine(String.Empty);
         }
 
 

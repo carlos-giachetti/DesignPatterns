@@ -1,6 +1,7 @@
 ﻿using DesignPatterns.Utils;
 using System;
 
+
 namespace DesignPatterns.AbstractFactory
 {
     class Program
@@ -14,10 +15,18 @@ namespace DesignPatterns.AbstractFactory
 
         static void Main(string[] args)
 		{
-			c1 = CarFactory.MakeCar(CarSophisticationLevel.Popular);
-			c2 = CarFactory.MakeCar(CarSophisticationLevel.Luxury);
+            logSection("DESIGN PATTERNS: ABSTRACT FACTORY\n");
 
-            logObjectsState();
+            logSection("1. Instantiating object c1: popular car...");
+            c1 = CarFactory.MakeCar(CarSophisticationLevel.Popular);
+            logObjectState(nameof(c1), c1);
+
+            log.AppendLine();
+
+            logSection("2. Instantiating object c2: luxury car...");
+            c2 = CarFactory.MakeCar(CarSophisticationLevel.Luxury);
+            logObjectState(nameof(c2), c2);
+
             logFlush();
 
             waitForKeyPress();
@@ -30,13 +39,16 @@ namespace DesignPatterns.AbstractFactory
         }
 
 
-        private static void logObjectsState()
+        private static void logSection(string sectionName)
         {
-            log.AppendLine(nameof(c1));
-            log.AppendLine(IDENTATION_LEVEL, "\t" + c1.GetDescription() + "\n");
+            log.AppendLine(sectionName);
+        }
 
-            log.AppendLine(nameof(c2));
-            log.AppendLine(IDENTATION_LEVEL, "\t" + c2.GetDescription());
+
+        private static void logObjectState(string carObjName, Car carObj)
+        {
+            log.AppendLine("\t" + carObjName);
+            log.AppendLine(IDENTATION_LEVEL, "\t\t" + carObj.GetDescription());
         }
 
 

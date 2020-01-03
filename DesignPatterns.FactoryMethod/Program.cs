@@ -14,7 +14,7 @@ namespace DesignPatterns.FactoryMethod
 
 		static void Main(string[] args)
 		{
-			logSection("DESIGN PATTERNS: FACTORYMETHOD");
+			logSection("DESIGN PATTERNS: FACTORY METHOD");
 
 
 			product = FactoryMethod.MakeProduct(ProductType.TypeA);
