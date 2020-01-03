@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.AbstractFactory
 {
-    public static class CarFactory
+    public class CarFactory
     {
         public static Car MakeCar(CarSophisticationLevel carSophisticationLevel)
         {
