@@ -1,9 +1,13 @@
 ﻿namespace DesignPatterns.FactoryMethod
 {
-    public interface IProduct
+    public interface ICar
     {
         string  GetDescription();
 
         decimal GetPrice();
+
+        IEngine GetEngine();
+
+        IShift GetShift();
     }
 }

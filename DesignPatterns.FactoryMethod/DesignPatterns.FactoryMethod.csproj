@@ -44,11 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FactoryMethod.cs" />
-    <Compile Include="IProduct.cs" />
-    <Compile Include="ProductA.cs" />
-    <Compile Include="ProductB.cs" />
-    <Compile Include="ProductC.cs" />
+    <Compile Include="CarSophisticationLevel.cs" />
+    <Compile Include="ManualShift.cs" />
+    <Compile Include="AutomaticShift.cs" />
+    <Compile Include="Engine1800cc.cs" />
+    <Compile Include="Engine1000cc.cs" />
+    <Compile Include="CarFactory.cs" />
+    <Compile Include="ICar.cs" />
+    <Compile Include="IEngine.cs" />
+    <Compile Include="IShift.cs" />
+    <Compile Include="PopularCar.cs" />
+    <Compile Include="LuxuryCar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

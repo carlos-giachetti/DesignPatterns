@@ -4,52 +4,66 @@ using System;
 
 namespace DesignPatterns.FactoryMethod
 {
-	class Program
-	{
-		private const  int IDENTATION_LEVEL = 4;
-		private static Log log              = new Log();
+    class Program
+    {
+        private const int IDENTATION_LEVEL = 4;
+        private static Log log = new Log();
 
-		private static IProduct product;
-
-
-		static void Main(string[] args)
-		{
-			logSection("DESIGN PATTERNS: FACTORY METHOD");
+        private static ICar c1;
+        private static ICar c2;
 
 
-			product = FactoryMethod.MakeProduct(ProductType.TypeA);
-			logProductState();
+        static void Main(string[] args)
+        {
+            logSection("DESIGN PATTERNS: FACTORY METHOD\n");
 
-			product = FactoryMethod.MakeProduct(ProductType.TypeB);
-			logProductState();
+            logSection("1. Instantiating object c1: popular car...");
+            c1 = CarFactory.MakeCar(CarSophisticationLevel.Popular);
+            logObjectState(nameof(c1), c1);
 
-			product = FactoryMethod.MakeProduct(ProductType.TypeC);
-			logProductState();
+            log.AppendLine();
 
+            logSection("2. Instantiating object c2: luxury car...");
+            c2 = CarFactory.MakeCar(CarSophisticationLevel.Luxury);
+            logObjectState(nameof(c2), c2);
 
-			logFlush();
-		}
+            logFlush();
 
-
-		private static string getProductDetails(string objectName, string className, IProduct obj) => $"{className} {objectName}\n\t\tDescription = {obj.GetDescription()}\n\t\tPrice = {obj.GetPrice()}";
-
-
-		private static void logSection(string sectionName)
-		{
-			log.AppendLine(sectionName);
-		}
+            waitForKeyPress();
+        }
 
 
-		private static void logProductState()
-		{
-			log.AppendLine(IDENTATION_LEVEL, "\n\t" + getProductDetails(nameof(product), product.GetType().Name, product));
-		}
+        private static void waitForKeyPress()
+        {
+            Console.ReadLine();
+        }
 
 
-		private static void logFlush()
-		{
-			Console.WriteLine(log.Flush());
-			Console.ReadLine();
-		}
-	}
+        private static void logSection(string sectionName)
+        {
+            log.AppendLine(sectionName);
+        }
+
+
+        private static void logObjectState(string carObjName, ICar carObj)
+        {
+            log.AppendLine(IDENTATION_LEVEL, $"\t{carObjName}: {carObj.GetType().Name}");
+            
+            IEngine engine            = carObj.GetEngine();
+            string  engineDescription = engine.GetDescription();
+
+            IShift  shift             = carObj.GetShift();
+            string  shiftDescription  = shift.GetDescription();
+
+
+            log.AppendLine(IDENTATION_LEVEL, $"\t\tEngine = {engineDescription}");
+            log.AppendLine(IDENTATION_LEVEL, $"\t\tShift  = {shiftDescription}");
+        }
+
+
+        private static void logFlush()
+        {
+            Console.WriteLine(log.Flush());
+        }
+    }
 }
