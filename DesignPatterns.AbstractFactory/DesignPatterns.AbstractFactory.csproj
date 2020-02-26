@@ -54,7 +54,7 @@
     <Compile Include="PopularCarFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wheel.cs" />
+    <Compile Include="Shift.cs" />
     <Compile Include="AutomaticShift.cs" />
     <Compile Include="ManualShift.cs" />
   </ItemGroup>
