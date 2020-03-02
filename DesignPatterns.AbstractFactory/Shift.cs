@@ -2,7 +2,7 @@
 {
     abstract public class Shift
     {
-        public virtual string GetDescription()
+        virtual public string GetDescription()
         {
             return "Shift";
         }
